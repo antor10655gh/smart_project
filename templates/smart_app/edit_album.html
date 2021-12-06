@@ -1,0 +1,16 @@
+{% extends 'smart_app/base.html' %}
+{% block body_block %}
+<h4>Edit Album</h4>
+{% if success_sms %}
+  <div class="alert alert-success">
+    {{ success_sms }}
+  </div>
+{% endif %}
+<form class="" action="" method="POST">
+  {{ edit_form.as_p }}
+  {% csrf_token %}
+  <input type="submit" name="submit" value="Update" class="btn btn-success btn-sm">
+</form>
+<br>
+<a href="{% url 'smart_app:delete_album' album_id=album_id %}" class="btn btn-danger btn-sm" onclick="return confirm('Sure delete?')">Delete</a>
+{% endblock %}
